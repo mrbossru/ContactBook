@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ContactBook.Helpers
 {
+    /// <summary>
+    /// Проверка корректности данных
+    /// </summary>
     static class Validator
     {
         public static bool IsValidMailAddress(string mailAddress)
