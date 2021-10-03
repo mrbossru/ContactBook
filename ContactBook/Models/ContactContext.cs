@@ -15,7 +15,7 @@ namespace ContactBook.Models
 
             //The issue occurrs here
 
-            optionsBuilder.UseJet(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\Users\MrBoss\source\repos\Contacts\Contacts\bin\Debug\Data.accdb;");
+            optionsBuilder.UseJet(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Data.accdb;");
 
         }
     }

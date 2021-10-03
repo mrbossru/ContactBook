@@ -3,10 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ContactBook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Контакты" Height="610.262" Width="940.342">
     <Grid>
-        
+        <TextBox x:Name="SearchTextBox" Margin="0,0,0,0" Text="" BorderBrush="Black" Height="25" VerticalAlignment="Top" GotKeyboardFocus="SearchTextBox_GotKeyboardFocus" LostKeyboardFocus="SearchTextBox_LostKeyboardFocus" TextChanged="SearchTextBox_TextChanged"/>
+        <Button x:Name="ClearButton" Margin="0,0,30,0" Content="Очистить" Width="90" ToolTip="Очистить строку поиска" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ClearButton_Click"/>
+        <Button x:Name="FavoriteButton" Margin="0,0,0,0" Content="*"  Width="30" ToolTip="Показать избранные контакты" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Click="FavoriteButton_Click" FontSize="20"/>
+        <DataGrid x:Name="contactsGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" Margin="0,25,0,25" IsReadOnly="True" MouseDoubleClick="contactsGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="100" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=Surname}" Width="100" />
+                <DataGridTextColumn Header="Дата рождения" Binding= "{Binding Birthday, StringFormat=\{0:dd.MM.yy\}}" Width="100"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding Path=Company}" Width="100" />
+                <DataGridTextColumn Header="E-Mail" Binding="{Binding Path=Email}" Width="90" />
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Path=Phone}" Width="120" />
+                <DataGridCheckBoxColumn Header="*" Binding="{Binding Path=Favorite}" Width="10" />
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить..."  Name="AddMenu" Click="AddMenu_Click">
+                        <MenuItem.Icon>
+                            <Image Width="10" Height="10" Source="/ContactBook;component/Images/add.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Изменить..."  Name="Edit" Click="Edit_Click">
+                        <MenuItem.Icon>
+                            <Image Width="10" Height="10" Source="/ContactBook;component/Images/edit.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Удалить..." Name="Delete" Click="Delete_Click">
+                        <MenuItem.Icon>
+                            <Image Width="10" Height="10" Source="/ContactBook;component/Images/delete.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button x:Name="AddButton" Margin="0,0,0,0" Content="Добавить контакт..." ToolTip="Создать новый контакт" Height="25" VerticalAlignment="Bottom" Click="AddMenu_Click"/>
     </Grid>
 </Window>
