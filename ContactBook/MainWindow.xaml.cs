@@ -120,11 +120,11 @@ namespace ContactBook
                 {
                     if (favoriteChecked)
                     {
-                        contactsGrid.ItemsSource = dbContext.Contacts.Where(p => p.Name.Contains(SearchTextBox.Text) || p.Surname.Contains(SearchTextBox.Text) || p.Company.Contains(SearchTextBox.Text) || p.Phone.Contains(SearchTextBox.Text) || p.Favorite).ToList();
+                        contactsGrid.ItemsSource = dbContext.Contacts.Where(p => p.Name.Contains(SearchTextBox.Text) || p.Surname.Contains(SearchTextBox.Text) || p.Company.Contains(SearchTextBox.Text) || p.Email.Contains(SearchTextBox.Text) || p.Phone.Contains(SearchTextBox.Text) || p.Favorite).ToList();
                     }
                     else
                     {
-                        contactsGrid.ItemsSource = dbContext.Contacts.Where(p => p.Name.Contains(SearchTextBox.Text) || p.Surname.Contains(SearchTextBox.Text) || p.Company.Contains(SearchTextBox.Text) || p.Phone.Contains(SearchTextBox.Text)).ToList();
+                        contactsGrid.ItemsSource = dbContext.Contacts.Where(p => p.Name.Contains(SearchTextBox.Text) || p.Surname.Contains(SearchTextBox.Text) || p.Company.Contains(SearchTextBox.Text) || p.Email.Contains(SearchTextBox.Text) || p.Phone.Contains(SearchTextBox.Text)).ToList();
                     }
 
                 }
