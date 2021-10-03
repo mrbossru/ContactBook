@@ -222,5 +222,10 @@
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
